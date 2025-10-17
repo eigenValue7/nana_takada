@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nana Takada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+        }
+
+        .contact-info a {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-right: 20px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .contact-info a:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #666;
+        }
+
+        /* Research */
+        .research-item {
+            margin-bottom: 50px;
+        }
+
+        .research-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .research-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .research-title {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .research-date {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .research-role {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .research-description {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .research-description ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .research-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 40px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .degree-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .degree {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .date {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .institution {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .details {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .skill-category li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .research-header,
+            .degree-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Nana Takada</h1>
+            <p class="subtitle">I develop AI-powered therapeutic interventions by integrating natural language processing, human-centered design, and collaboration with clinical experts. My research focuses on creating evidence-based digital tools to support parenting and family well-being.</p>
+            <div class="contact-info">
+                <a href="mailto:nt388@cornell.edu">nt388@cornell.edu</a>
+                <a href="tel:7184314275">(718) 431-4275</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Research -->
+    <section>
+        <div class="container">
+            <h2>Research</h2>
+            
+            <div class="research-item">
+                <div class="research-header">
+                    <div class="research-title">AI Tool for Parent-Child Interaction Therapy</div>
+                    <div class="research-date">Oct 2024 – Present</div>
+                </div>
+                <div class="research-role">Primary Researcher, Cornell Tech</div>
+                <div class="research-description">
+                    Leading the design and development of a technology-enhanced parenting support tool grounded in Parent-Child Interaction Therapy, an evidence-based intervention that teaches positive parenting skills.
+                    <ul>
+                        <li>Developed machine learning pipeline to automate classification of parent-child interactions using DPICS behavioral coding, achieving 83% accuracy with RoBERTa-based embeddings and acoustic features</li>
+                        <li>Processed and annotated over 1 million lines of caregiver-child dialogue using WhisperAI for transcription</li>
+                        <li>Conducted semi-structured interviews with 12 PCIT clinicians to identify barriers and strategies for enhancing caregiver engagement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-header">
+                    <div class="research-title">AI-Powered New Beginnings Program</div>
+                    <div class="research-date">May 2025 – Present</div>
+                </div>
+                <div class="research-role">Research Intern, King's College London</div>
+                <div class="research-description">
+                    Contributing to the development of an AI tool that personalizes and reinforces parenting skills from the New Beginnings Program, an evidence-based intervention for divorced parents.
+                    <ul>
+                        <li>Led iterative implementation of three-component therapeutic flow: Scenario Elicitation, Skill Application & Feedback, and Commitment Planning</li>
+                        <li>Built modular conversations using LangGraph and OpenAI API, enabling personalized feedback and interactive scenario rewriting</li>
+                        <li>Collaborated daily with postdoctoral NBP therapist to ensure clinical fidelity and therapeutic alignment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-header">
+                    <div class="research-title">Nurcho Platform for Developmental Support</div>
+                    <div class="research-date">May 2024 – Aug 2024</div>
+                </div>
+                <div class="research-role">Co-Founder & Engineer, Cup Club</div>
+                <div class="research-description">
+                    Designed and built a platform to help parents of children with developmental disabilities in Japan find suitable early intervention programs through concern-based and location-based searches.
+                    <ul>
+                        <li>Conducted interviews with over 20 parents and clinical psychologists to understand challenges in accessing support services</li>
+                        <li>Built concern-based recommendation engine in collaboration with child psychiatrist to match children's needs with relevant programs</li>
+                        <li>Launched Japan's first independent review system for developmental support centers, acquiring over 30 parent reviews in first month</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-header">
+                    <div class="research-title">Behavioral Analytics for Caregiver Well-being</div>
+                    <div class="research-date">Mar 2025 – Apr 2025</div>
+                </div>
+                <div class="research-role">Data Scientist Intern, Happy Pillar</div>
+                <div class="research-description">
+                    Led statistical analysis of behavioral logs and well-being scores to explore relationships between app engagement and caregiver-reported stress using t-tests and linear regression. Identified significant correlation between weekly engagement frequency and improved parenting goal achievement, guiding product team to emphasize features promoting consistent use.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <div class="container">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="degree-info">
+                    <div class="degree">Cornell Tech, Cornell University</div>
+                    <div class="date">May 2026</div>
+                </div>
+                <div class="institution">Jacobs Technion-Cornell Dual Master of Information Science Degrees</div>
+                <div class="details">GPA: 4.1 | Relevant Courses: Machine Learning Engineering, Natural Language Processing, Human Computer Interaction</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree-info">
+                    <div class="degree">Columbia University</div>
+                    <div class="date">May 2021</div>
+                </div>
+                <div class="institution">Bachelor of Science in Computer Science, Machine Learning Track</div>
+                <div class="details">Minor in Economics | GPA: 3.7</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <ul>
+                        <li>Natural Language Processing</li>
+                        <li>RoBERTa & Transformer Models</li>
+                        <li>Feature Engineering</li>
+                        <li>WhisperAI (Audio Transcription)</li>
+                        <li>Model Evaluation & Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technical</h3>
+                    <ul>
+                        <li>Python (Pandas, SciPy, NumPy)</li>
+                        <li>LangGraph & OpenAI API</li>
+                        <li>Statistical Analysis</li>
+                        <li>Data Pipeline Architecture</li>
+                        <li>Web Development</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Research Methods</h3>
+                    <ul>
+                        <li>Clinical Collaboration</li>
+                        <li>Semi-structured Interviews</li>
+                        <li>Semantic Analysis</li>
+                        <li>User Research</li>
+                        <li>Evidence-based Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Design & Product</h3>
+                    <ul>
+                        <li>Human-Centered Design</li>
+                        <li>Prototyping & Iteration</li>
+                        <li>Product Strategy</li>
+                        <li>Clinical Fidelity Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            © 2025 Nana Takada
+        </div>
+    </footer>
+</body>
+</html>
