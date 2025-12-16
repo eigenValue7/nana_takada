@@ -3,401 +3,1282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nana Takada</title>
+    <title>Nana Takada | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #FAFAF8;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #2D3436;
+            --text-secondary: #636E72;
+            --accent-coral: #FF7675;
+            --accent-mint: #81ECEC;
+            --accent-lavender: #A29BFE;
+            --accent-peach: #FFEAA7;
+            --accent-sage: #55EFC4;
+            --accent-rose: #FD79A8;
+            --accent-sky: #74B9FF;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.8;
-            color: #1a1a1a;
-            background: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
         }
 
-        .container {
-            max-width: 900px;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 248, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Header */
-        header {
-            padding: 80px 0 60px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: #666;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            max-width: 700px;
-        }
-
-        .contact-info {
-            margin-top: 30px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-        }
-
-        .contact-info a {
-            color: #1a1a1a;
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
             text-decoration: none;
-            margin-right: 20px;
-            border-bottom: 1px solid #d0d0d0;
         }
 
-        .contact-info a:hover {
-            border-bottom: 1px solid #1a1a1a;
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        /* Sections */
+        nav .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        nav .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--accent-lavender) 0%, var(--accent-mint) 100%);
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(80px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--accent-peach) 0%, var(--accent-rose) 100%);
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(80px);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-lavender) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .hero-tag {
+            padding: 0.5rem 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Section Styles */
         section {
-            padding: 80px 0;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 6rem 2rem;
         }
 
-        section:last-of-type {
-            border-bottom: none;
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        h2 {
-            font-size: 14px;
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-card .accent-bar {
+            height: 4px;
+            width: 100%;
+        }
+
+        .project-card.coral .accent-bar { background: linear-gradient(90deg, var(--accent-coral), var(--accent-peach)); }
+        .project-card.mint .accent-bar { background: linear-gradient(90deg, var(--accent-mint), var(--accent-sage)); }
+        .project-card.lavender .accent-bar { background: linear-gradient(90deg, var(--accent-lavender), var(--accent-sky)); }
+        .project-card.rose .accent-bar { background: linear-gradient(90deg, var(--accent-rose), var(--accent-coral)); }
+        .project-card.sage .accent-bar { background: linear-gradient(90deg, var(--accent-sage), var(--accent-mint)); }
+        .project-card.sky .accent-bar { background: linear-gradient(90deg, var(--accent-sky), var(--accent-lavender)); }
+        .project-card.peach .accent-bar { background: linear-gradient(90deg, var(--accent-peach), var(--accent-rose)); }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-category {
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 40px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #666;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
         }
 
-        /* Research */
-        .research-item {
-            margin-bottom: 50px;
+        .project-card.coral .project-category { color: var(--accent-coral); }
+        .project-card.mint .project-category { color: #00B894; }
+        .project-card.lavender .project-category { color: var(--accent-lavender); }
+        .project-card.rose .project-category { color: var(--accent-rose); }
+        .project-card.sage .project-category { color: #00B894; }
+        .project-card.sky .project-category { color: var(--accent-sky); }
+        .project-card.peach .project-category { color: #E17055; }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
-        .research-item:last-child {
-            margin-bottom: 0;
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
 
-        .research-header {
+        .project-meta {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
         }
 
-        .research-title {
-            font-size: 20px;
-            font-weight: 400;
-        }
-
-        .research-date {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 14px;
-            color: #999;
-        }
-
-        .research-role {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .research-description {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 16px;
-            color: #444;
-            line-height: 1.7;
-        }
-
-        .research-description ul {
-            margin-top: 12px;
-            padding-left: 20px;
-        }
-
-        .research-description li {
-            margin-bottom: 8px;
-        }
-
-        /* Education */
-        .education-item {
-            margin-bottom: 40px;
-        }
-
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .degree-info {
+        .meta-item {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            min-width: 80px;
+        }
+
+        .meta-value {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .tech-tags {
+            display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0.5rem;
         }
 
-        .degree {
-            font-size: 18px;
-            font-weight: 400;
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
         }
 
-        .date {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 14px;
-            color: #999;
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: var(--transition);
         }
 
-        .institution {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-            color: #666;
+        .project-link:hover {
+            background: var(--text-primary);
+            color: var(--bg-secondary);
         }
 
-        .details {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-            color: #666;
-            margin-top: 8px;
+        .project-link svg {
+            width: 16px;
+            height: 16px;
         }
 
-        /* Skills */
-        .skills-grid {
+        /* Featured Project */
+        .featured-project {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
         }
 
-        .skill-category h3 {
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            font-family: 'Georgia', serif;
+        .featured-image {
+            background: linear-gradient(135deg, var(--accent-lavender) 0%, var(--accent-mint) 50%, var(--accent-peach) 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
         }
 
-        .skill-category ul {
-            list-style: none;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-            color: #666;
+        .featured-image .emoji {
+            font-size: 8rem;
         }
 
-        .skill-category li {
-            margin-bottom: 8px;
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-lavender);
+            margin-bottom: 1rem;
+        }
+
+        .featured-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .featured-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Research Focus Section */
+        .research-focus {
+            background: linear-gradient(135deg, rgba(162, 155, 254, 0.08) 0%, rgba(129, 236, 236, 0.08) 100%);
+        }
+
+        .focus-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .focus-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .focus-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .focus-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .focus-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
         /* Footer */
         footer {
-            padding: 60px 0;
             text-align: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 14px;
-            color: #999;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-lavender);
+            text-decoration: none;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+            nav .nav-links {
+                display: none;
             }
 
-            h1 {
-                font-size: 36px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .skills-grid {
+            .featured-project {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
 
-            .research-header,
-            .degree-info {
-                flex-direction: column;
-                align-items: flex-start;
+            .featured-image {
+                min-height: 250px;
             }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+
+        /* Outcome Badge */
+        .outcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(85, 239, 196, 0.15) 0%, rgba(129, 236, 236, 0.15) 100%);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #00B894;
+            margin-top: 1rem;
+        }
+
+        .outcome-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            background: #000;
+            border-radius: var(--radius);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .video-modal.active .video-modal-content {
+            transform: scale(1);
+        }
+
+        .video-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .video-modal-title {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .video-modal-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .video-modal-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Video Play Button Styles */
+        .video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-lavender) 0%, var(--accent-sky) 100%);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(162, 155, 254, 0.3);
+        }
+
+        .video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(162, 155, 254, 0.4);
+        }
+
+        .video-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .video-btn.coral-btn {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-peach) 100%);
+            box-shadow: 0 4px 15px rgba(255, 118, 117, 0.3);
+        }
+
+        .video-btn.coral-btn:hover {
+            box-shadow: 0 6px 20px rgba(255, 118, 117, 0.4);
+        }
+
+        .video-btn.mint-btn {
+            background: linear-gradient(135deg, var(--accent-sage) 0%, var(--accent-mint) 100%);
+            box-shadow: 0 4px 15px rgba(85, 239, 196, 0.3);
+        }
+
+        .video-btn.mint-btn:hover {
+            box-shadow: 0 6px 20px rgba(85, 239, 196, 0.4);
+        }
+
+        /* Project Placeholder Images */
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(162, 155, 254, 0.15) 0%, rgba(129, 236, 236, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-image .placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .project-image .placeholder svg {
+            width: 48px;
+            height: 48px;
+            stroke: currentColor;
+        }
+
+        .project-image .placeholder span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Different placeholder colors per project type */
+        .project-card.lavender .project-image {
+            background: linear-gradient(135deg, rgba(162, 155, 254, 0.2) 0%, rgba(162, 155, 254, 0.05) 100%);
+        }
+
+        .project-card.mint .project-image {
+            background: linear-gradient(135deg, rgba(85, 239, 196, 0.2) 0%, rgba(85, 239, 196, 0.05) 100%);
+        }
+
+        .project-card.coral .project-image {
+            background: linear-gradient(135deg, rgba(255, 118, 117, 0.2) 0%, rgba(255, 118, 117, 0.05) 100%);
+        }
+
+        .project-card.sage .project-image {
+            background: linear-gradient(135deg, rgba(85, 239, 196, 0.2) 0%, rgba(129, 236, 236, 0.05) 100%);
+        }
+
+        .project-card.sky .project-image {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.2) 0%, rgba(116, 185, 255, 0.05) 100%);
+        }
+
+        .project-card.peach .project-image {
+            background: linear-gradient(135deg, rgba(255, 234, 167, 0.3) 0%, rgba(255, 234, 167, 0.1) 100%);
+        }
+
+        /* Featured project image update */
+        .featured-image {
+            background: linear-gradient(135deg, rgba(253, 121, 168, 0.15) 0%, rgba(255, 234, 167, 0.15) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-image .placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .featured-image .placeholder svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        .featured-image .placeholder span {
+            font-size: 0.85rem;
+        }
+
+        /* Loading spinner for video */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--accent-lavender);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Nana Takada</h1>
-            <p class="subtitle">I develop AI-powered therapeutic interventions by integrating natural language processing, human-centered design, and collaboration with clinical experts. My research focuses on creating evidence-based digital tools to support parenting and family well-being.</p>
-            <div class="contact-info">
-                <a href="mailto:nt388@cornell.edu">nt388@cornell.edu</a>
-                <a href="tel:7184314275">(718) 431-4275</a>
-                <a href="#">LinkedIn</a>
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <span class="video-modal-title" id="videoTitle">Project Demo</span>
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <div class="video-container" id="videoContainer">
+                <div class="video-loading" id="videoLoading">
+                    <div class="spinner"></div>
+                    <span>Loading video...</span>
+                </div>
             </div>
         </div>
-    </header>
-
-    <!-- Research -->
-    <section>
+    </div>
+    <!-- Navigation -->
+    <nav>
         <div class="container">
-            <h2>Research</h2>
-            
-            <div class="research-item">
-                <div class="research-header">
-                    <div class="research-title">AI Tool for Parent-Child Interaction Therapy</div>
-                    <div class="research-date">Oct 2024 – Present</div>
-                </div>
-                <div class="research-role">Primary Researcher, Cornell Tech</div>
-                <div class="research-description">
-                    Leading the design and development of a technology-enhanced parenting support tool grounded in Parent-Child Interaction Therapy, an evidence-based intervention that teaches positive parenting skills.
-                    <ul>
-                        <li>Developed machine learning pipeline to automate classification of parent-child interactions using DPICS behavioral coding, achieving 83% accuracy with RoBERTa-based embeddings and acoustic features</li>
-                        <li>Processed and annotated over 1 million lines of caregiver-child dialogue using WhisperAI for transcription</li>
-                        <li>Conducted semi-structured interviews with 12 PCIT clinicians to identify barriers and strategies for enhancing caregiver engagement</li>
-                    </ul>
-                </div>
-            </div>
+            <a href="#" class="logo">Nana Takada</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#research">Research Focus</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <div class="research-item">
-                <div class="research-header">
-                    <div class="research-title">AI-Powered New Beginnings Program</div>
-                    <div class="research-date">May 2025 – Present</div>
-                </div>
-                <div class="research-role">Research Intern, King's College London</div>
-                <div class="research-description">
-                    Contributing to the development of an AI tool that personalizes and reinforces parenting skills from the New Beginnings Program, an evidence-based intervention for divorced parents.
-                    <ul>
-                        <li>Led iterative implementation of three-component therapeutic flow: Scenario Elicitation, Skill Application & Feedback, and Commitment Planning</li>
-                        <li>Built modular conversations using LangGraph and OpenAI API, enabling personalized feedback and interactive scenario rewriting</li>
-                        <li>Collaborated daily with postdoctoral NBP therapist to ensure clinical fidelity and therapeutic alignment</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-item">
-                <div class="research-header">
-                    <div class="research-title">Nurcho Platform for Developmental Support</div>
-                    <div class="research-date">May 2024 – Aug 2024</div>
-                </div>
-                <div class="research-role">Co-Founder & Engineer, Cup Club</div>
-                <div class="research-description">
-                    Designed and built a platform to help parents of children with developmental disabilities in Japan find suitable early intervention programs through concern-based and location-based searches.
-                    <ul>
-                        <li>Conducted interviews with over 20 parents and clinical psychologists to understand challenges in accessing support services</li>
-                        <li>Built concern-based recommendation engine in collaboration with child psychiatrist to match children's needs with relevant programs</li>
-                        <li>Launched Japan's first independent review system for developmental support centers, acquiring over 30 parent reviews in first month</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="research-item">
-                <div class="research-header">
-                    <div class="research-title">Behavioral Analytics for Caregiver Well-being</div>
-                    <div class="research-date">Mar 2025 – Apr 2025</div>
-                </div>
-                <div class="research-role">Data Scientist Intern, Happy Pillar</div>
-                <div class="research-description">
-                    Led statistical analysis of behavioral logs and well-being scores to explore relationships between app engagement and caregiver-reported stress using t-tests and linear regression. Identified significant correlation between weekly engagement frequency and improved parenting goal achievement, guiding product team to emphasize features promoting consistent use.
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate-in">
+            <h1>Designing Technology for Human Connection</h1>
+            <p>Exploring how robots and AI can mediate warmer forms of communication between parents and children, translating internal experiences into shared, perceivable signals.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Human-Robot Interaction</span>
+                <span class="hero-tag">Parent-Child Communication</span>
+                <span class="hero-tag">Tangible Interfaces</span>
+                <span class="hero-tag">AI for Well-being</span>
             </div>
         </div>
     </section>
 
-    <!-- Education -->
-    <section>
-        <div class="container">
-            <h2>Education</h2>
-            
-            <div class="education-item">
-                <div class="degree-info">
-                    <div class="degree">Cornell Tech, Cornell University</div>
-                    <div class="date">May 2026</div>
-                </div>
-                <div class="institution">Jacobs Technion-Cornell Dual Master of Information Science Degrees</div>
-                <div class="details">GPA: 4.1 | Relevant Courses: Machine Learning Engineering, Natural Language Processing, Human Computer Interaction</div>
+    <!-- Research Focus -->
+    <section class="research-focus" id="research">
+        <div class="section-header">
+            <h2>Research Vision</h2>
+            <p>Creating technologies that support warmer forms of communication by making internal experiences more shareable</p>
+        </div>
+        <div class="focus-grid">
+            <div class="focus-item animate-in delay-1">
+                <h3 class="focus-title">Verbal Communication</h3>
+                <p class="focus-description">Enhancing parent-child verbal interaction through automated feedback and coaching systems in therapeutic settings</p>
             </div>
+            <div class="focus-item animate-in delay-2">
+                <h3 class="focus-title">Robotic Mediation</h3>
+                <p class="focus-description">Designing robots that translate embodied movement and affective cues into perceivable signals that caregivers can respond to</p>
+            </div>
+            <div class="focus-item animate-in delay-3">
 
-            <div class="education-item">
-                <div class="degree-info">
-                    <div class="degree">Columbia University</div>
-                    <div class="date">May 2021</div>
-                </div>
-                <div class="institution">Bachelor of Science in Computer Science, Machine Learning Track</div>
-                <div class="details">Minor in Economics | GPA: 3.7</div>
+                <h3 class="focus-title">Emotional Regulation</h3>
+                <p class="focus-description">Creating tangible companions that acknowledge emotional states and guide calm through light, vibration, and sound</p>
             </div>
         </div>
     </section>
 
-    <!-- Skills -->
-    <section>
-        <div class="container">
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Machine Learning</h3>
-                    <ul>
-                        <li>Natural Language Processing</li>
-                        <li>RoBERTa & Transformer Models</li>
-                        <li>Feature Engineering</li>
-                        <li>WhisperAI (Audio Transcription)</li>
-                        <li>Model Evaluation & Optimization</li>
-                    </ul>
-                </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Selected Projects</h2>
+            <p>A collection of work exploring the intersection of technology, communication, and human well-being</p>
+        </div>
 
-                <div class="skill-category">
-                    <h3>Technical</h3>
-                    <ul>
-                        <li>Python (Pandas, SciPy, NumPy)</li>
-                        <li>LangGraph & OpenAI API</li>
-                        <li>Statistical Analysis</li>
-                        <li>Data Pipeline Architecture</li>
-                        <li>Web Development</li>
-                    </ul>
-                </div>
+        <!-- Featured Project -->
+        <div class="featured-project animate-in">
 
-                <div class="skill-category">
-                    <h3>Research Methods</h3>
-                    <ul>
-                        <li>Clinical Collaboration</li>
-                        <li>Semi-structured Interviews</li>
-                        <li>Semantic Analysis</li>
-                        <li>User Research</li>
-                        <li>Evidence-based Design</li>
-                    </ul>
-                </div>
+        </div>
 
-                <div class="skill-category">
-                    <h3>Design & Product</h3>
-                    <ul>
-                        <li>Human-Centered Design</li>
-                        <li>Prototyping & Iteration</li>
-                        <li>Product Strategy</li>
-                        <li>Clinical Fidelity Testing</li>
-                    </ul>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <div class="project-card lavender animate-in delay-1">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="meowpow/meowpow.jpg" alt="MeowPow Smart Plushie">
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Interactive Device Design</span>
+                    <h3 class="project-title">MeowPow</h3>
+                    <p class="project-description">A soothing smart plushie that provides comforting light, sound, and haptic feedback to support emotional regulation. Rather than relying on verbal instruction, MewoPow responds to hugs with gentle light, vibration, and sound, inviting sustained embraces into a slow breathing rhythm using the 4-7-8 pattern.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Individuals seeking emotional regulation support</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Raspberry Pi 5</span>
+                                <span class="tech-tag">Capacitive Touch</span>
+                                <span class="tech-tag">Haptic Motor</span>
+                                <span class="tech-tag">NeoPixel LED</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="video-btn" onclick="openVideoModal('MeowPow Demo', 'https://drive.google.com/file/d/1tJB6YYY5F78B4yNwRLRaIkYnWtlE6GVH/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                        <a href="https://github.com/eigenValue7/Interactive-Lab-Hub/tree/Fall2025/Final_project" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- PCIT Coaching System -->
+            <div class="project-card lavender animate-in delay-1">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="pcit_coachin/F.png" alt="PCIT Coaching System">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">AI for Parenting Support</span>
+                    <h3 class="project-title">PCIT Coaching System</h3>
+                    <p class="project-description">An AI-powered coaching system that delivers personalized, context-grounded feedback by analyzing what parents actually say during interactions with their children. Combines speaker diarization, automatic speech recognition, and a fine-tuned RoBERTa classifier (83.6% accuracy) to identify and categorize parent utterances.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Parents in PCIT therapy, clinicians</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">RoBERTa</span>
+                                <span class="tech-tag">LangGraph</span>
+                                <span class="tech-tag">Whisper</span>
+                                <span class="tech-tag">GPT-4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outcome-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        IRB study in preparation
+                    </div>
+                    <button class="video-btn" onclick="openVideoModal('PCIT Coaching Demo', 'https://drive.google.com/file/d/1iMSe8TcVdsUlHlUnJdsFIqN_yRJWlwBe/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                    <a href="https://github.com/eigenValue7/pcit_chatbot" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- New Beginnings Program -->
+            <div class="project-card mint animate-in delay-2">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="nbp/img.png" alt="New Beginnings Program Chatbot">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Mental Health Technology</span>
+                    <h3 class="project-title">New Beginnings Program Chatbot</h3>
+                    <p class="project-description">A chatbot intervention for divorced parents based on the New Beginnings Program, an evidence-based intervention that teaches parents skills to prevent children from becoming caught in interparental conflict. The system prompts users to reflect on recent child-involved conflicts and guides them to rewrite their behaviors.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Divorced parents with children</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">OpenAI API</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outcome-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Feasibility interviews with psychiatrists
+                    </div>
+                        <button class="video-btn" onclick="openVideoModal('New Beginnings Program Demo', 'https://drive.google.com/file/d/1rVaA7xeFBNYKANgjI9W0brUvwOzS0DwL/preview)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- PCIT Platform -->
+            <div class="project-card peach animate-in delay-3">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="pcit_platform/platform.png" alt="PCIT Feedback Platform">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Clinical Tools</span>
+                    <h3 class="project-title">PCIT Feedback Platform</h3>
+                    <p class="project-description">A web platform enabling clinicians to monitor caregivers' behavioral data from in-session and at-home practice. Features include tracking trends in Do/Don't skills over time, reviewing session-level details with transcribed utterances, and secure caregiver verification.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">PCIT clinicians and therapists</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Drizzle ORM</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://pcit-platform.vercel.app/" class="project-link" target="https://pcit-platform.vercel.app/">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        Visit Platform
+                    </a>
+                    <p> Example Account: sarah@pcit.com, testtest</p>
+                    <button class="video-btn" onclick="openVideoModal('PCIT Platform Demo', 'https://drive.google.com/file/d/10n6_A6WlY5iCeb4GXrdX5QsGNsOdCwLn/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                    <a href="https://github.com/gabrielashirley/pcit-platform" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                    <!-- https://github.com/gabrielashirley/pcit-platform -->
+                </div>
+            </div>
+
+            <!-- RoboSketch -->
+            <div class="project-card coral animate-in delay-4">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="drawing_robot/img.png" alt="RoboSketch Collaborative Drawing Robot">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Human-Robot Interaction</span>
+                    <h3 class="project-title">RoboSketch</h3>
+                    <p class="project-description">A collaborative drawing robot game that translates children's movement into visual traces. As a child moves through space, the robot follows and draws their path on paper, revealing how robots can mediate human-to-human connection through play. Tested with K-12 students.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">K-12 students, educational settings</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">TurtleBot4</span>
+                                <span class="tech-tag">ROS2</span>
+                                <span class="tech-tag">DepthAI</span>
+                                <span class="tech-tag">MobileNet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outcome-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        User study with 16 participants
+                    </div>
+                    <button class="video-btn" onclick="openVideoModal('RoboSketch Demo', 'https://drive.google.com/file/d/1LV-1hQ8S3T8RWf8B34eWWUZf4VF5zm9X/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                    <a href="https://github.com/Cornell-Tech-Intro-HRI-2024/crayola" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bloomy -->
+            <div class="project-card sage animate-in delay-5">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="bloomy/img.png" alt="Bloomy Robotic Flower">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Ubiquitous Computing</span>
+                    <h3 class="project-title">Bloomy</h3>
+                    <p class="project-description">A robotic flower for intuitive air quality monitoring, designed especially for asthma awareness. Bloomy expresses environmental conditions through tangible feedback—blooming or closing its petals and changing LED colors based on PM2.5 and CO2 sensor data.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Individuals with asthma, caregivers</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Adafruit CLUE</span>
+                                <span class="tech-tag">PM2.5 Sensor</span>
+                                <span class="tech-tag">CO2 Sensor</span>
+                                <span class="tech-tag">Bluetooth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="video-btn" onclick="openVideoModal('Bloomy Demo', 'https://drive.google.com/file/d/1ONWCWuxpJdBWDVd2YpLEO4wVMtq6BUeF/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+                    <a href="https://github.com/olivesmoo/bloomy" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Color Catcher -->
+            <div class="project-card sky animate-in delay-6">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="color_catcher/system_1.png" alt="Color Catcher Interactive System">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Interactive Device Design</span>
+                    <h3 class="project-title">ColorCatcher</h3>
+                    <p class="project-description">A handheld drawing board that lets users "catch" real-world colors from their environment. Point the device at any object—a flower, a wall, a sunset—and paint with that exact color. Combines a color sensor, joystick for drawing, rotary encoder for brush size, and capacitive touch buttons for tool switching.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Creative expression, accessibility</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Raspberry Pi</span>
+                                <span class="tech-tag">Color Sensor</span>
+                                <span class="tech-tag">Joystick</span>
+                                <span class="tech-tag">Capactic Touch</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="video-btn" onclick="openVideoModal('Color Catcher Demo', 'https://drive.google.com/file/d/1exdFhbeZ1OPWIUfdNk68q4nGJfGQ_YyJ/preview')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Watch Demo
+                    </button>
+
+                    <!-- https://github.com/eigenValue7/Interactive-Lab-Hub/tree/Fall2025/Lab%204 -->
+                    <a href="https://github.com/eigenValue7/Interactive-Lab-Hub/tree/Fall2025/Lab%204" class="project-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Breeze or Bolt -->
+            <div class="project-card sky animate-in delay-6">
+                <div class="project-image">
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <img src="breeze/img.png" alt="Breeze or Bolt Chatbot Study">
+                    </div>
+                </div>
+                <div class="accent-bar"></div>
+                <div class="project-content">
+                    <span class="project-category">Psychology of Social Computing</span>
+                    <h3 class="project-title">Breeze or Bolt</h3>
+                    <p class="project-description">A study investigating how aligning a chatbot's language intensity with a user's impacts perceptions of trustworthiness, persuasiveness, and relational appeal. Created high and low-intensity chatbots using chain-of-thought prompting to explore the similarity effect in human-AI interaction.</p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">For</span>
+                            <span class="meta-value">Understanding chatbot design for trust</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tech</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Google Gemini</span>
+                                <span class="tech-tag">WhatsApp API</span>
+                                <span class="tech-tag">Survey Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outcome-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Study with 21 participants
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            © 2025 Nana Takada
-        </div>
+    <footer id="contact">
+        <p>Nana Takada • Cornell Tech</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="mailto:nt388@cornell.edu">nt388@cornell.edu</a>
+        </p>
+        <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #b2bec3;">
+            Portfolio for MIT Media Lab • Personal Robots Group
+        </p>
     </footer>
+
+    <script>
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Video Modal Functions
+        const videoModal = document.getElementById('videoModal');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoTitle = document.getElementById('videoTitle');
+        const videoLoading = document.getElementById('videoLoading');
+
+        function openVideoModal(title, videoUrl) {
+            videoTitle.textContent = title;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Show loading
+            videoLoading.style.display = 'flex';
+            
+            // Create iframe for Google Drive video
+            const iframe = document.createElement('iframe');
+            iframe.src = videoUrl;
+            iframe.allow = 'autoplay; encrypted-media';
+            iframe.allowFullscreen = true;
+            iframe.style.opacity = '0';
+            iframe.style.transition = 'opacity 0.3s ease';
+            
+            // Handle iframe load
+            iframe.onload = function() {
+                videoLoading.style.display = 'none';
+                iframe.style.opacity = '1';
+            };
+            
+            // Clear previous video and add new one
+            const existingIframe = videoContainer.querySelector('iframe');
+            if (existingIframe) {
+                existingIframe.remove();
+            }
+            videoContainer.appendChild(iframe);
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Remove iframe to stop video
+            const iframe = videoContainer.querySelector('iframe');
+            if (iframe) {
+                iframe.src = '';
+                setTimeout(() => {
+                    iframe.remove();
+                }, 300);
+            }
+            
+            // Show loading again for next time
+            videoLoading.style.display = 'flex';
+        }
+
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+    </script>
 </body>
 </html>
